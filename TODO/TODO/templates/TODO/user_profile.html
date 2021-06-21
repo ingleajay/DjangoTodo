@@ -1,0 +1,37 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">View Profile</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="{{data.extra_data.picture}}" style="float:left; padding-right: 5px;">
+                <div class="card " style="width: 20rem; ">
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b>Username:</b> {{ user.username }}
+                        </li>
+                        <li class="list-group-item"><b>Email:</b> {{ user.email }}</li>
+                        <li class="list-group-item"><b>First Name:</b>
+                            {{user.first_name}}</li>
+                        <li class="list-group-item"><b>Last Name:</b>
+                            {{user.last_name}}</li>
+                        <li class="list-group-item"><b>Date Joined:</b>
+                            {{user.date_joined}}</li>
+                        <li class="list-group-item"><b>Last login:</b>
+                            {{user.last_login}}</li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>

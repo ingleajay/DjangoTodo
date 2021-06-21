@@ -1,0 +1,26 @@
+{% extends 'TODO/base.html' %}
+{% load static %}
+<title>{% block title %}Edit{% endblock title %}</title>
+{% block edit %}
+<div class="container  mt-5">
+    <div class="row">
+        <div class="col-lg-5 mx-auto ">
+            <div class="card" style="width: 25em;">
+                <img src="{% static 'todo/img/logo.png' %}" class="rounded-circle mx-auto " width="70px" height="70px"
+                    style="margin-top: 5px;">
+                <div class="card-body">
+                    <div class="alert alert-warning" role="alert" style="height: 50px; ">
+                        <p class="text-center"><b>Update Your Task</b></p>
+                    </div>
+                    <div class="card" style="width: 23em;">
+
+                        <div class="card-body">
+                            {% include 'TODO/form.html' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock edit %}

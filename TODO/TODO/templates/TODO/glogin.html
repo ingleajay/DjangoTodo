@@ -1,0 +1,8 @@
+{% load socialaccount %}
+<p class="text-center">Welcome Friend, please <b>log in</b></p>
+
+<a href="{% provider_login_url 'google' %}" class="btn btn btn-danger btn-lg btn-block" role="button"
+    aria-pressed="true" style="font-size: 15px;">
+    <i class="fa fa-google" style="font-size: 17px;">
+        Sign in with Google</i>
+</a>

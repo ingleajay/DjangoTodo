@@ -1,0 +1,58 @@
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">All Task</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card mx-auto" style="width: 27rem; ">
+                    <div class="col-lg-12" data-aos="zoom-in">
+                        {% if detail %}
+                        <table class="table table-responsive" style=" margin-top: 10px; overflow-x: hidden;">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Task</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Time</th>
+                                    <th scope="col">Edit</th>
+                                    <th scope="col">Delete</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for st in detail %}
+                                <tr>
+                                    </th>
+                                    <td>{{st.id}}</td>
+                                    <td>{{st.Task}}</td>
+                                    <td>{{st.Date}}</td>
+                                    <td>{{st.Time}}</td>
+                                    <td>
+                                        <a href="{% url 'edit' st.id %}" class="btn btn-warning btn-sm"
+                                            style="margin-bottom: 5px; width: 100%;">Edit</a>
+
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'delete' st.id %}" class="btn btn-danger btn-sm"
+                                            style="margin-bottom: 5px; width: 100%;">Delete</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        {% else %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

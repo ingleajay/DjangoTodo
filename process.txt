@@ -1,0 +1,62 @@
+1. create virtual env 
+	-> python -m venv venv 
+2. activate virtual env
+	-> venv\Script\activate
+3. install django in venv
+	> py -m pip install django
+4. create new project
+	-> cd TODO --> django-admin startproject TODO
+		   --> django-admin startapp OAuth
+5. add apps in setting
+6. install --> pip install django-allauth
+7. In Installing apps -->
+    'django.contrib.sites',
+    'TODO',
+    'OAuth',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+8. Add this in settings :
+	AUTHENTICATION_BACKENDS = 
+	[
+               'django.contrib.auth.backends.ModelBackend',
+               'allauth.account.auth_backends.AuthenticationBackend',
+        ]
+9.Add some additional :
+	SITE_ID = 1
+        LOGIN_REDIRECT_URL = '/'
+
+        SOCIALACCOUNT_PROVIDERS = {
+            'google': {
+                'SCOPE': [
+                   'profile',
+                   'email'
+            ],
+            'AUTH_PARAMS': {
+                  'access_type':'online',
+            }
+         }
+        }
+10. python manage.py makemigrations 
+11. python manage.py migrate
+12. python manage.py createsuperuser 
+13. python manage.py runserver
+14. on admin - Add site one more as 127.0.0.1:8000 and update site = 1 by site = 2 in setting
+15. create templates\OAuth\index.html
+    setting --> 
+    import os
+    TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+    STATIC_DIR = os.path.join(BASE_DIR, 'static')
+    'DIRS': [TEMPLATES_DIR],
+    STATIC_URL = '/static/'
+    STATICFILE_DIR = [
+       STATIC_DIR
+    ]
+16. Add some bootstrap and add urls and views for view rendering template
+	-> path('', v.Oauth, name="goauth"),
+           path('accounts/',include('allauth.urls')),
+17. google -> google api -> new project ->credentials -> configure consent screen -> external -> OAuth screen -> app name -> django-auth-app -> creditinals -> OAuth client id ->OAuth url javascript -> http://127.0.0.1:8000 --> OAuth redirect url -> http://127.0.0.1:8000/accounts/google/login/callback/--> get client id and secret key
+    id - 194116909157-elmgnp77q1vvh5g0il4itklcqhsad4s8.apps.googleusercontent.com 
+    key -R1Ptbj8cVQxKmXO13L7S4dS6
+18. admin panel - > social application -> fill details and take your site 127.. and save

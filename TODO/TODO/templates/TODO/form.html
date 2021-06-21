@@ -1,0 +1,15 @@
+{% if user.is_authenticated %}
+<form method="POST" action="" novalidate>
+    {% csrf_token %}
+    {% for ft in form %}
+    {{ft.label_tag}}<br>
+    <div class="form-group">
+        <div class="input-group">
+            {{ft}}<br>
+        </div>
+        <div>{{ft.errors}}</div>
+    </div>
+    {% endfor %}
+    <input class="btn btn-success" type="submit" value="Add">
+</form>
+{% endif %}
